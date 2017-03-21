@@ -1,0 +1,32 @@
+{
+  "name": "dotfiles-generator",
+  "version": "0.0.1",
+  "description": "Quickly generate dot files (.gitignore, .npmignore, .editorconfig etc.) for quick development environment setup.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "dotfiles-generator .gitignore"
+  },
+  "bin": {
+    "dotfiles-generator": "./scripts/postinstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sun1l/dotfiles-generator.git"
+  },
+  "keywords": [
+    "dotfiles",
+    "editorconfig",
+    "npmignore",
+    "gitignore"
+  ],
+  "author": "Sunil Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sun1l/dotfiles-generator/issues"
+  },
+  "homepage": "https://github.com/sun1l/dotfiles-generator#readme",
+  "devDependencies": {
+    "fs-extra": "^2.1.2",
+    "yargs": "^7.0.2"
+  }
+}
