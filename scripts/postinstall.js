@@ -1,12 +1,15 @@
-const fs = require('fs-extra')
-const path = require('path')
+#!/usr/bin/env node
+
+const fs = require('fs-extra');
+const path = require('path');
 const args = require('yargs').argv;
 
 const config = {
     'rootPath' : path.join(__dirname),
     'sourceFiles' : [],
     'files': args._ || [],
-    'overwrite' : args.overwrite || false
+    'overwrite' : args.overwrite || false,
+    'verbose' : false
 }
 
 /**
@@ -31,16 +34,18 @@ function copy (files = null, sourcePath = null, destinationPath = null, overwrit
     }
 
     files.forEach(function(filename){
+        let sourceFilename = filename.substring(1, filename.length);
 
-        if(!getDotfilesList().includes(filename)){
+        if(!getDotfilesList().includes(sourceFilename)){
             console.log(filename + ' is not available.');
             return false;
         }
 
-        let source = path.join(sourcePath, filename);
+        let source = path.join(sourcePath, sourceFilename);
         let destination = path.join(destinationPath, filename);
 
         function filterFiles(source, destination){
+            
             const filename = path.basename(source);
 
             if(overwrite === false && fs.existsSync(destination)){
@@ -70,7 +75,7 @@ function copy (files = null, sourcePath = null, destinationPath = null, overwrit
     }
 
     if(!destinationPath){
-        destinationPath = path.join(config.rootPath, '../');
+        destinationPath = path.join(config.rootPath, '..', '..', '..');
     }
 
     config.sourceFiles = getDotfilesFromSource(sourcePath);
