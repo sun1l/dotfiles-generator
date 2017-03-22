@@ -2,6 +2,8 @@
 Utility to auto-generate dotfiles like .gitignore, .npmignore, .editorconfig etc. in your project.
 
 [![npm](https://img.shields.io/npm/v/dotfiles-generator.svg)](https://www.npmjs.com/package/dotfiles-generator)
+[![GitHub issues](https://img.shields.io/github/issues/sun1l/dotfiles-generator.svg)](https://github.com/sun1l/dotfiles-generator/issues)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/sun1l/dotfiles-generator/master/LICENSE)
 
 [Installation](#Installation) |
 [Usage](#usage) |
@@ -45,7 +47,7 @@ node node_modules/.bin/dotfiles-generator .gitignore .editorconfig
 
 ### Overwriting
 
-If any of the dotfile already exist, `dotfiles-generator` will not overwrite it. To force overwrite, you need to pass '--overwrite'. For e.g.
+If any of the dotfile already exist, `dotfiles-generator` will not overwrite it. To force overwrite, you need to pass `--overwrite`. For e.g.
 
 ```bash
 dotfiles-generator .gitignore .editorconfig --overwrite
