@@ -59,11 +59,13 @@ dotfiles-generator .gitignore .editorconfig --overwrite
 .gitignore
 .editorconfig
 .npmignore
+.eslintrc
 .stylelintrc
 ```
 
 ### Additional information on dotfiles
 
+**.eslintrc**: ESLint configuration ([eslint.org](http://eslint.org/)) - Extracted from [feross/eslint-config-standard](https://github.com/feross/eslint-config-standard).
 **.stylelintrc**: Stylelint configuration ([stylelint.io](https://stylelint.io/))
 
 
