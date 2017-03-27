@@ -59,8 +59,13 @@ dotfiles-generator .gitignore .editorconfig --overwrite
 .gitignore
 .editorconfig
 .npmignore
-.stylelintrc [stylelint.io](https://stylelint.io/)
+.stylelintrc
 ```
+
+### Additional information on dotfiles
+
+**.stylelintrc**: Stylelint configuration ([stylelint.io](https://stylelint.io/))
+
 
 ## Contributing
 
