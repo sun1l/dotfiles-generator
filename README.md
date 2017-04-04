@@ -1,5 +1,5 @@
 # Dotfiles Generator
-Utility to auto-generate dotfiles like .gitignore, .npmignore, .editorconfig etc. in your project.
+Utility to auto-generate dotfiles like .gitignore, .editorconfig etc. in your project.
 
 [![npm](https://img.shields.io/npm/v/dotfiles-generator.svg)](https://www.npmjs.com/package/dotfiles-generator)
 [![GitHub issues](https://img.shields.io/github/issues/sun1l/dotfiles-generator.svg)](https://github.com/sun1l/dotfiles-generator/issues)
@@ -15,18 +15,18 @@ Utility to auto-generate dotfiles like .gitignore, .npmignore, .editorconfig etc
 
 ### Global Installation
 
-Global installation is recommended, it allow you to generate and update dotfiles in any folder without specifying an absolute path.
+Global installation is recommended; it allows you to generate and update dotfiles in any folder without specifying an absolute path.
 
 ```bash
-npm install dotfiles-generator --global
+npm install dotfiles-generator --g
 ```
 
 ### Local Installation
 
-You can also install `dotfiles-generator` locally as a dev dependency, and it will automatically add the common dotfiles required for any project. If a dotfile already exist, it will not overwrite instead skip it.
+You can also install `dotfiles-generator` locally as a dev dependency, and it will automatically add the common dotfiles required for any project. If a dotfile already exist, it will be skipped.
 
 ```bash
-npm install dotfiles-generator --save-dev 
+npm install dotfiles-generator --save-dev
 ```
 
 ## Usage
@@ -37,9 +37,13 @@ Once the `dotfiles-generator` is installed globally, you can add all available d
 dotfiles-generator .gitignore .editorconfig
 ```
 
-This will add `.gitignore` and `.editorconfig` in your current working directory. 
+This will add `.gitignore` and `.editorconfig` in your current working directory. You can also specify `-d` or `--destination` to add dotfiles in any other directory.
 
-If you have installled `dotfiles-generator` as local dependency, you can still access the command line by running from `node_modules/.bin`
+```bash
+dotfiles-generator .gitignore .editorconfig -d examples/
+```
+
+If you have installed `dotfiles-generator` as local dependency, you can still access the command line by running from `node_modules/.bin`
 
 ```bash
 node node_modules/.bin/dotfiles-generator .gitignore .editorconfig
@@ -47,14 +51,14 @@ node node_modules/.bin/dotfiles-generator .gitignore .editorconfig
 
 ### Overwriting
 
-If any of the dotfile already exist, `dotfiles-generator` will not overwrite it. To force overwrite, you need to pass `--overwrite`. For e.g.
+If any of the dotfile already exist, `dotfiles-generator` will not overwrite by default. To force overwrite, you need to pass `--overwrite`. For e.g.
 
 ```bash
 dotfiles-generator .gitignore .editorconfig --overwrite
 ```
 
 <a id="available-dotfiles"></a>
-## Available dotfiles 
+## Available dotfiles
 ```bash
 .gitignore
 .editorconfig

@@ -1,19 +1,18 @@
 {
   "name": "dotfiles-generator",
-  "version": "1.0.1",
-  "description": "Quickly generate dot files (.gitignore, .npmignore, .editorconfig etc.) for quick development environment setup.",
-  "main": "./dist/index.js",
+  "version": "2.0.0",
+  "description": "Utility to auto-generate dotfiles like .gitignore, .editorconfig etc. in your project.",
+  "main": "./dist/lib/dotfileGenerator.js",
   "scripts": {
-    "localInit": "node ./dist/index.js .gitignore .npmignore --env l",
-    "postinstall": "(node dist/scripts/checkGlobal) || (npm run localInit)",
+    "localInit": "node ./dist/bin/index.js .gitignore .npmignore .editorconfig --d ../../",
+    "postinstall": "(node dist/bin/scripts/checkGlobal) || (npm run localInit)",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "lint": "eslint src/",
-    "build": "rimraf dist/ && babel src/ --out-dir dist/ && babel src/dotfiles --out-dir dist/dotfiles --copy-files",
-    "prepublish": "npm run lint && npm run build",
-    "preversion": "npm run lint"
+    "lint": "eslint bin lib src",
+    "build": "rimraf dist && babel bin --out-dir dist/bin && babel lib --out-dir dist/lib && babel src --out-dir dist && babel src/dotfiles --out-dir dist/dotfiles --copy-files",
+    "prepublish": "npm run lint && npm run build"
   },
   "bin": {
-    "dotfiles-generator": "./dist/index.js"
+    "dotfiles-generator": "./dist/bin/index.js"
   },
   "repository": {
     "type": "git",
@@ -30,8 +29,8 @@
     "gitconfig"
   ],
   "author": {
-    "name" : "Sunil Kumar",
-    "url" : "https://twitter.com/sun1lkumar"
+    "name": "Sunil Kumar",
+    "url": "https://twitter.com/sun1lkumar"
   },
   "license": "MIT",
   "bugs": {
@@ -39,6 +38,7 @@
   },
   "homepage": "https://github.com/sun1l/dotfiles-generator#readme",
   "dependencies": {
+    "chalk": "^1.1.3",
     "fs-extra": "^2.1.2",
     "minimist": "^1.2.0"
   },
@@ -46,6 +46,7 @@
     "babel-cli": "^6.24.0",
     "babel-eslint": "^7.2.0",
     "babel-preset-latest": "^6.24.0",
+    "babel-preset-stage-2": "^6.22.0",
     "conventional-changelog-cli": "^1.3.1",
     "eslint": "^3.18.0",
     "rimraf": "^2.6.1"
